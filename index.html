@@ -7,7 +7,8 @@
   <title>Arthur Pogosian</title>
   <link rel="stylesheet" href="stylesheet.css">
 </head>
-<body>
+<body data-theme="dark">
+  <button class="theme-toggle" id="themeToggle">Light</button>
   <div class="page">
     <header class="top">
       <div class="intro">
@@ -143,6 +144,8 @@
     (function () {
       const buttons = Array.from(document.querySelectorAll('.filters .pill'));
       const cards = Array.from(document.querySelectorAll('.card[data-topic]'));
+      const toggle = document.getElementById('themeToggle');
+      const body = document.body;
 
       function selectedFilters() {
         const active = buttons.filter(b => b.classList.contains('active')).map(b => b.dataset.filter);
@@ -163,6 +166,24 @@
           btn.classList.toggle('active');
           applyFilters();
         });
+      });
+
+      function setTheme(theme) {
+        body.setAttribute('data-theme', theme);
+        toggle.textContent = theme === 'dark' ? 'Light' : 'Dark';
+        try { localStorage.setItem('theme', theme); } catch (e) {}
+      }
+
+      const saved = (() => { try { return localStorage.getItem('theme'); } catch (e) { return null; } })();
+      if (saved === 'light' || saved === 'dark') {
+        setTheme(saved);
+      } else {
+        setTheme('dark');
+      }
+
+      toggle.addEventListener('click', () => {
+        const next = body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        setTheme(next);
       });
 
       applyFilters();

@@ -7,7 +7,8 @@
   <title>Resume | Arthur Pogosian</title>
   <link rel="stylesheet" href="stylesheet.css">
 </head>
-<body>
+<body data-theme="dark">
+  <button class="theme-toggle" id="themeToggle">Light</button>
   <div class="page">
     <header class="top" style="grid-template-columns: 1fr;">
       <div class="intro-text" style="gap: 6px;">
@@ -30,5 +31,29 @@
       </section>
     </main>
   </div>
+  <script>
+    (function () {
+      const toggle = document.getElementById('themeToggle');
+      const body = document.body;
+
+      function setTheme(theme) {
+        body.setAttribute('data-theme', theme);
+        toggle.textContent = theme === 'dark' ? 'Light' : 'Dark';
+        try { localStorage.setItem('theme', theme); } catch (e) {}
+      }
+
+      const saved = (() => { try { return localStorage.getItem('theme'); } catch (e) { return null; } })();
+      if (saved === 'light' || saved === 'dark') {
+        setTheme(saved);
+      } else {
+        setTheme('dark');
+      }
+
+      toggle.addEventListener('click', () => {
+        const next = body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        setTheme(next);
+      });
+    })();
+  </script>
 </body>
 </html>
