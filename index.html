@@ -4,189 +4,174 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="author" content="Arthur Pogosian">
+  <meta name="description" content="Arthur Pogosian's writing, research, and selected work.">
   <title>Arthur Pogosian</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="stylesheet.css">
 </head>
-<body data-theme="dark">
-  <button class="theme-toggle" id="themeToggle">Light</button>
-  <div class="page">
-    <header class="top">
-      <div class="intro">
-        <div class="intro-row">
-          <div class="photo-box" style="background:url('images/me.jpg') center/cover"></div>
-          <div class="intro-text">
-            <h1>Arthur Pogosian</h1>
-            <p class="lede">
-              Research scientist focused on ML systems, representation learning, and tools that help people think better.
-              Currently exploring how to make research artifacts feel like products.
-            </p>
-            <div class="status-row">
-              <span class="dot"></span>
-              <span class="status-text">Open to collaborations on research logs, prototypes, and writing.</span>
-            </div>
-          </div>
-        </div>
+<body id="top">
+  <div class="grain" aria-hidden="true"></div>
+  <main class="site-shell">
+    <nav class="site-nav">
+      <a class="brand" href="index.html">Arthur Pogosian</a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#work">Work</a>
+        <a href="#writing">Writing</a>
       </div>
-      <div class="top-side">
-        <nav class="links">
+    </nav>
+
+    <section id="about" class="intro-grid reveal">
+      <div class="portrait-wrap">
+        <img src="images/me.jpg" alt="Portrait of Arthur Pogosian" class="portrait">
+        <p class="portrait-caption">San Francisco, CA</p>
+      </div>
+
+      <div class="intro-copy">
+        <p class="eyebrow">About</p>
+        <h1>Researcher, Writer</h1>
+        <p>
+          Hello! I'm Arthur, and I am interested in controlling AI systems and also the downstream effects of technology on our society. I am an aspiring critical theory writer. Mainly, I work on Responsible AI and AI Safety at Pinterest to make sure our systems are inclusive and safe.
+          This site tracks selected projects and writing notes. The writing feed below syncs from my Substack.
+        </p>
+        <div class="contact-line">
           <a href="mailto:arthurmpogosian@gmail.com">Email</a>
-          <a href="https://github.com/arfpog">GitHub</a>
-          <a href="https://linkedin.com/in/arthur-pogosian">LinkedIn</a>
+          <span aria-hidden="true">·</span>
+          <a href="https://github.com/arfpog" target="_blank" rel="noopener">GitHub</a>
+          <span aria-hidden="true">·</span>
+          <a href="https://linkedin.com/in/arthur-pogosian" target="_blank" rel="noopener">LinkedIn</a>
+          <span aria-hidden="true">·</span>
           <a href="resume.html">Resume</a>
-        </nav>
+        </div>
       </div>
-    </header>
+    </section>
 
-    <div class="filters">
-      <button class="pill active" data-filter="research">Research</button>
-      <button class="pill active" data-filter="engineering">Engineering</button>
-      <button class="pill active" data-filter="writing">Writing</button>
-    </div>
-
-    <main>
-      <section class="grid">
-        <article class="card" data-topic="research">
-          <div class="thumb gradient-a"></div>
-          <div class="card-head">
-            <h3>Fast radiance field tooling</h3>
-            <span class="year">2025</span>
+    <section id="work" class="section reveal reveal-delay-1">
+      <div class="section-head">
+        <p class="eyebrow">Selected Work</p>
+      </div>
+      <ul class="work-list">
+        <li class="work-item">
+          <div class="work-year">2026</div>
+          <div class="work-content">
+            <h2>Characterizing Backtracking in CoT Through Internal Probes and Surface-Level Features</h2>
+            <p class="work-note">Accepted to ICLR 2026 Logical Reasoning of Large Language Models Workshop. Pending arXiv submission.</p>
           </div>
-          <p>Building lighter-weight NeRF evaluation harnesses for small teams, with reproducible metrics and cached pipelines.</p>
-          <div class="meta">research log · radiance fields · metrics</div>
-        </article>
+        </li>
+      </ul>
+    </section>
 
-        <article class="card" data-topic="research engineering">
-          <div class="thumb gradient-b"></div>
-          <div class="card-head">
-            <h3>Interpretability in the loop</h3>
-            <span class="year">2025</span>
-          </div>
-          <p>Designing interactive probes that surface model behavior as part of the training workflow instead of afterthought audits.</p>
-          <div class="meta">systems · interpretability · tools</div>
-        </article>
+    <section id="writing" class="section reveal reveal-delay-2">
+      <div class="section-head writing-head">
+        <p class="eyebrow">Latest from Substack</p>
+        <a class="section-link" href="https://arthurpogosian.substack.com" target="_blank" rel="noopener">Open newsletter</a>
+      </div>
 
-        <article class="card" data-topic="engineering writing">
-          <div class="thumb gradient-c"></div>
-          <div class="card-head">
-            <h3>Notebook-first storytelling</h3>
-            <span class="year">2024</span>
-          </div>
-          <p>A writing flow that keeps code, figures, and narrative in sync — opinionated templates for sharing experiments.</p>
-          <div class="meta">engineering · writing · dashboards</div>
+      <div class="rss-meta" id="rssMeta">Loading latest posts…</div>
+      <div class="writing-list" id="substackList">
+        <article class="entry skeleton">
+          <p class="entry-date">Loading</p>
+          <h3>Fetching latest writing from Substack</h3>
+          <p class="entry-summary">Please wait a moment.</p>
         </article>
+      </div>
+    </section>
 
-        <article class="card" data-topic="writing">
-          <div class="thumb gradient-d"></div>
-          <div class="card-head">
-            <h3>Quiet Notes</h3>
-            <span class="year">ongoing</span>
-          </div>
-          <p>A weekly digest of field notes, one paper worth reading, and a prompt to test in the lab or journal.</p>
-          <div class="meta">writing · newsletter</div>
-        </article>
+    <footer class="site-footer reveal reveal-delay-3">
+      <p>Arthur Pogosian</p>
+      <a href="#top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' }); return false;">Back to top</a>
+    </footer>
+  </main>
 
-        <article class="card" data-topic="research">
-          <div class="thumb gradient-e"></div>
-          <div class="card-head">
-            <h3>Small-batch evals</h3>
-            <span class="year">2024</span>
-          </div>
-          <p>Experimenting with compact benchmarking suites that catch failure modes without a GPU farm.</p>
-          <div class="meta">research · infra</div>
-        </article>
-
-        <article class="card" data-topic="writing research">
-          <div class="thumb gradient-f"></div>
-          <div class="card-head">
-            <h3>Field guide to responsible launches</h3>
-            <span class="year">2023</span>
-          </div>
-          <p>Pre-mortems, dataset audits, and communication templates for shipping generative systems responsibly.</p>
-          <div class="meta">writing · ethics</div>
-        </article>
-      </section>
-
-      <section id="writing" class="writing">
-        <div class="writing-head">
-          <h2>Writing</h2>
-          <a class="text-link" href="mailto:you@example.com">Say hello →</a>
-        </div>
-        <div class="writing-list">
-          <article class="note">
-            <div>
-              <p class="note-date">Mar 2025</p>
-              <h4><a href="posts/sample.html">Designing evaluation before architecture</a></h4>
-              <p class="note-meta">How to avoid scaling the wrong thing.</p>
-            </div>
-            <span class="badge">research log</span>
-          </article>
-          <article class="note">
-            <div>
-              <p class="note-date">Feb 2025</p>
-              <h4>Work-in-progress as a format</h4>
-              <p class="note-meta">Sharing unfinished ideas without noise.</p>
-            </div>
-            <span class="badge">essay</span>
-          </article>
-          <article class="note">
-            <div>
-              <p class="note-date">Jan 2025</p>
-              <h4>Interfaces that teach</h4>
-              <p class="note-meta">What makes a research tool feel inviting.</p>
-            </div>
-            <span class="badge">tools</span>
-          </article>
-        </div>
-      </section>
-    </main>
-  </div>
   <script>
     (function () {
-      const buttons = Array.from(document.querySelectorAll('.filters .pill'));
-      const cards = Array.from(document.querySelectorAll('.card[data-topic]'));
-      const toggle = document.getElementById('themeToggle');
-      const body = document.body;
+      const list = document.getElementById('substackList');
+      const meta = document.getElementById('rssMeta');
+      const fallbackLink = 'https://arthurpogosian.substack.com';
+      const endpoint = 'https://api.rss2json.com/v1/api.json?rss_url=' + encodeURIComponent('https://arthurpogosian.substack.com/feed');
 
-      function selectedFilters() {
-        const active = buttons.filter(b => b.classList.contains('active')).map(b => b.dataset.filter);
-        return active.length ? active : [];
+      function stripHtml(input) {
+        return (input || '')
+          .replace(/<[^>]*>/g, ' ')
+          .replace(/\s+/g, ' ')
+          .trim();
       }
 
-      function applyFilters() {
-        const active = selectedFilters();
-        cards.forEach(card => {
-          const topics = (card.dataset.topic || '').split(' ');
-          const show = active.length === 0 ? true : active.some(f => topics.includes(f));
-          card.classList.toggle('hidden', !show);
+      function formatDate(input) {
+        const date = new Date(input);
+        if (Number.isNaN(date.getTime())) return 'Recent';
+        return date.toLocaleDateString(undefined, {
+          year: 'numeric',
+          month: 'short',
+          day: 'numeric'
         });
       }
 
-      buttons.forEach(btn => {
-        btn.addEventListener('click', () => {
-          btn.classList.toggle('active');
-          applyFilters();
-        });
-      });
+      function renderItems(items) {
+        const topItems = items.slice(0, 5);
+        if (!topItems.length) {
+          list.innerHTML = '<article class="entry"><p class="entry-summary">No posts available right now. <a href="' + fallbackLink + '" target="_blank" rel="noopener">Visit Substack</a>.</p></article>';
+          meta.textContent = 'No recent entries found.';
+          return;
+        }
 
-      function setTheme(theme) {
-        body.setAttribute('data-theme', theme);
-        toggle.textContent = theme === 'dark' ? 'Light' : 'Dark';
-        try { localStorage.setItem('theme', theme); } catch (e) {}
+        list.innerHTML = topItems.map(function (item) {
+          const summary = stripHtml(item.description || item.content || '').slice(0, 190);
+          const safeSummary = summary ? summary + (summary.length >= 190 ? '…' : '') : 'Read on Substack.';
+
+          return [
+            '<article class="entry">',
+              '<p class="entry-date">' + formatDate(item.pubDate) + '</p>',
+              '<h3><a href="' + item.link + '" target="_blank" rel="noopener">' + (item.title || 'Untitled post') + '</a></h3>',
+              '<p class="entry-summary">' + safeSummary + '</p>',
+            '</article>'
+          ].join('');
+        }).join('');
+
+        const latest = topItems[0] && topItems[0].pubDate ? formatDate(topItems[0].pubDate) : 'recently';
+        meta.textContent = 'Updated from RSS feed. Latest post: ' + latest + '.';
       }
 
-      const saved = (() => { try { return localStorage.getItem('theme'); } catch (e) { return null; } })();
-      if (saved === 'light' || saved === 'dark') {
-        setTheme(saved);
+      function renderError() {
+        list.innerHTML = '<article class="entry"><p class="entry-summary">Could not load RSS right now. <a href="' + fallbackLink + '" target="_blank" rel="noopener">Open Substack</a>.</p></article>';
+        meta.textContent = 'RSS temporarily unavailable.';
+      }
+
+      fetch(endpoint)
+        .then(function (res) {
+          if (!res.ok) throw new Error('Request failed');
+          return res.json();
+        })
+        .then(function (data) {
+          if (!data || data.status !== 'ok' || !Array.isArray(data.items)) {
+            throw new Error('Invalid RSS response');
+          }
+          renderItems(data.items);
+        })
+        .catch(renderError);
+
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, {
+          threshold: 0.15
+        });
+
+        document.querySelectorAll('.reveal').forEach(function (el) {
+          observer.observe(el);
+        });
       } else {
-        setTheme('dark');
+        document.querySelectorAll('.reveal').forEach(function (el) {
+          el.classList.add('visible');
+        });
       }
-
-      toggle.addEventListener('click', () => {
-        const next = body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-        setTheme(next);
-      });
-
-      applyFilters();
     })();
   </script>
 </body>

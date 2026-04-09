@@ -5,55 +5,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="author" content="Arthur Pogosian">
   <title>Resume | Arthur Pogosian</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="stylesheet.css">
 </head>
-<body data-theme="dark">
-  <button class="theme-toggle" id="themeToggle">Light</button>
-  <div class="page">
-    <header class="top" style="grid-template-columns: 1fr;">
-      <div class="intro-text" style="gap: 6px;">
-        <h1>Resume</h1>
-        <p class="lede">View or download my resume:</p>
-        <div class="links" style="flex-direction: row; gap: 12px; text-align: left;">
-          <a class="pill" href="pdfs/resume.pdf" target="_blank" rel="noopener">Open PDF</a>
-          <a class="pill" href="index.html">Back to home</a>
-        </div>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <main class="site-shell resume-main">
+    <nav class="site-nav">
+      <a class="brand" href="index.html">Arthur Pogosian</a>
+      <div class="nav-links">
+        <a href="index.html#about">About</a>
+        <a href="index.html#work">Work</a>
+        <a href="index.html#writing">Writing</a>
       </div>
-    </header>
+    </nav>
 
-    <main>
-      <section class="card" style="padding: 0; overflow: hidden;">
-        <object data="pdfs/resume.pdf" type="application/pdf" width="100%" height="900px">
-          <div style="padding: 18px;">
+    <section class="section reveal visible">
+      <div class="section-head writing-head">
+        <p class="eyebrow">Resume</p>
+        <a class="section-link" href="pdfs/resume.pdf" target="_blank" rel="noopener">Open PDF</a>
+      </div>
+      <div class="resume-frame">
+        <object data="pdfs/resume.pdf" type="application/pdf" width="100%" height="900">
+          <div style="padding: 16px;">
             <p>Your browser cannot display the PDF. You can <a href="pdfs/resume.pdf" target="_blank" rel="noopener">download it here</a>.</p>
           </div>
         </object>
-      </section>
-    </main>
-  </div>
-  <script>
-    (function () {
-      const toggle = document.getElementById('themeToggle');
-      const body = document.body;
+      </div>
+    </section>
 
-      function setTheme(theme) {
-        body.setAttribute('data-theme', theme);
-        toggle.textContent = theme === 'dark' ? 'Light' : 'Dark';
-        try { localStorage.setItem('theme', theme); } catch (e) {}
-      }
-
-      const saved = (() => { try { return localStorage.getItem('theme'); } catch (e) { return null; } })();
-      if (saved === 'light' || saved === 'dark') {
-        setTheme(saved);
-      } else {
-        setTheme('dark');
-      }
-
-      toggle.addEventListener('click', () => {
-        const next = body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-        setTheme(next);
-      });
-    })();
-  </script>
+    <footer class="site-footer">
+      <p>Arthur Pogosian</p>
+      <a href="index.html">Back home</a>
+    </footer>
+  </main>
 </body>
 </html>
