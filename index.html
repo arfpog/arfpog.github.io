@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script>document.documentElement.classList.add('js');</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="author" content="Arthur Pogosian">
@@ -8,171 +9,33 @@
   <title>Arthur Pogosian</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="stylesheet.css">
 </head>
-<body id="top">
-  <div class="grain" aria-hidden="true"></div>
-  <main class="site-shell">
-    <nav class="site-nav">
-      <a class="brand" href="index.html">Arthur Pogosian</a>
-      <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#work">Work</a>
-        <a href="#writing">Writing</a>
-      </div>
-    </nav>
+<body id="top" class="page">
+  <header class="top-nav grid-shell">
+    <h1 class="page-title">Arthur Pogosian</h1>
+  </header>
 
-    <section id="about" class="intro-grid reveal">
-      <div class="portrait-wrap">
-        <img src="images/me.jpg" alt="Portrait of Arthur Pogosian" class="portrait">
-        <p class="portrait-caption">San Francisco, CA</p>
-      </div>
+  <main class="hero grid-shell">
+    <div class="portrait-wrap">
+      <img src="images/about.png" alt="Arthur Pogosian" class="portrait">
+    </div>
 
-      <div class="intro-copy">
-        <p class="eyebrow">About</p>
-        <h1>Researcher, Writer</h1>
-        <p>
-          Hello! I'm Arthur, and I am interested in controlling AI systems and also the downstream effects of technology on our society. I am an aspiring critical theory writer. Mainly, I work on Responsible AI and AI Safety at Pinterest to make sure our systems are inclusive and safe.
-          This site tracks selected projects and writing notes. The writing feed below syncs from my Substack.
-        </p>
-        <div class="contact-line">
-          <a href="mailto:arthurmpogosian@gmail.com">Email</a>
-          <span aria-hidden="true">·</span>
-          <a href="https://github.com/arfpog" target="_blank" rel="noopener">GitHub</a>
-          <span aria-hidden="true">·</span>
-          <a href="https://linkedin.com/in/arthur-pogosian" target="_blank" rel="noopener">LinkedIn</a>
-          <span aria-hidden="true">·</span>
-          <a href="resume.html">Resume</a>
-        </div>
+    <div class="intro-copy">
+      <p>Hello! I'm Arthur, and I am interested in controlling AI systems and also the downstream effects of technology on our society. I am an aspiring critical theory writer. Mainly, I work on Responsible AI and AI Safety at Pinterest to make sure our systems are inclusive and safe.</p>
+      <p>Currently, I&rsquo;m based in San Francisco, CA.</p>
+      <div class="contact-line">
+        <a href="mailto:arthurmpogosian@gmail.com">Email <span class="arrow">&rarr;</span></a>
+        <a href="https://github.com/arfpog" target="_blank" rel="noopener">GitHub <span class="arrow">&rarr;</span></a>
+        <a href="https://linkedin.com/in/arthur-pogosian" target="_blank" rel="noopener">LinkedIn <span class="arrow">&rarr;</span></a>
+        <!-- <a href="resume.html">Resume</a> -->
       </div>
-    </section>
-
-    <section id="work" class="section reveal reveal-delay-1">
-      <div class="section-head">
-        <p class="eyebrow">Selected Work</p>
-      </div>
-      <ul class="work-list">
-        <li class="work-item">
-          <div class="work-year">2026</div>
-          <div class="work-content">
-            <h2>Characterizing Backtracking in CoT Through Internal Probes and Surface-Level Features</h2>
-            <p class="work-note">Accepted to ICLR 2026 Logical Reasoning of Large Language Models Workshop. Pending arXiv submission.</p>
-          </div>
-        </li>
-      </ul>
-    </section>
-
-    <section id="writing" class="section reveal reveal-delay-2">
-      <div class="section-head writing-head">
-        <p class="eyebrow">Latest from Substack</p>
-        <a class="section-link" href="https://arthurpogosian.substack.com" target="_blank" rel="noopener">Open newsletter</a>
-      </div>
-
-      <div class="rss-meta" id="rssMeta">Loading latest posts…</div>
-      <div class="writing-list" id="substackList">
-        <article class="entry skeleton">
-          <p class="entry-date">Loading</p>
-          <h3>Fetching latest writing from Substack</h3>
-          <p class="entry-summary">Please wait a moment.</p>
-        </article>
-      </div>
-    </section>
-
-    <footer class="site-footer reveal reveal-delay-3">
-      <p>Arthur Pogosian</p>
-      <a href="#top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' }); return false;">Back to top</a>
-    </footer>
+    </div>
   </main>
 
-  <script>
-    (function () {
-      const list = document.getElementById('substackList');
-      const meta = document.getElementById('rssMeta');
-      const fallbackLink = 'https://arthurpogosian.substack.com';
-      const endpoint = 'https://api.rss2json.com/v1/api.json?rss_url=' + encodeURIComponent('https://arthurpogosian.substack.com/feed');
+  <div id="footer-placeholder"></div>
 
-      function stripHtml(input) {
-        return (input || '')
-          .replace(/<[^>]*>/g, ' ')
-          .replace(/\s+/g, ' ')
-          .trim();
-      }
-
-      function formatDate(input) {
-        const date = new Date(input);
-        if (Number.isNaN(date.getTime())) return 'Recent';
-        return date.toLocaleDateString(undefined, {
-          year: 'numeric',
-          month: 'short',
-          day: 'numeric'
-        });
-      }
-
-      function renderItems(items) {
-        const topItems = items.slice(0, 5);
-        if (!topItems.length) {
-          list.innerHTML = '<article class="entry"><p class="entry-summary">No posts available right now. <a href="' + fallbackLink + '" target="_blank" rel="noopener">Visit Substack</a>.</p></article>';
-          meta.textContent = 'No recent entries found.';
-          return;
-        }
-
-        list.innerHTML = topItems.map(function (item) {
-          const summary = stripHtml(item.description || item.content || '').slice(0, 190);
-          const safeSummary = summary ? summary + (summary.length >= 190 ? '…' : '') : 'Read on Substack.';
-
-          return [
-            '<article class="entry">',
-              '<p class="entry-date">' + formatDate(item.pubDate) + '</p>',
-              '<h3><a href="' + item.link + '" target="_blank" rel="noopener">' + (item.title || 'Untitled post') + '</a></h3>',
-              '<p class="entry-summary">' + safeSummary + '</p>',
-            '</article>'
-          ].join('');
-        }).join('');
-
-        const latest = topItems[0] && topItems[0].pubDate ? formatDate(topItems[0].pubDate) : 'recently';
-        meta.textContent = 'Updated from RSS feed. Latest post: ' + latest + '.';
-      }
-
-      function renderError() {
-        list.innerHTML = '<article class="entry"><p class="entry-summary">Could not load RSS right now. <a href="' + fallbackLink + '" target="_blank" rel="noopener">Open Substack</a>.</p></article>';
-        meta.textContent = 'RSS temporarily unavailable.';
-      }
-
-      fetch(endpoint)
-        .then(function (res) {
-          if (!res.ok) throw new Error('Request failed');
-          return res.json();
-        })
-        .then(function (data) {
-          if (!data || data.status !== 'ok' || !Array.isArray(data.items)) {
-            throw new Error('Invalid RSS response');
-          }
-          renderItems(data.items);
-        })
-        .catch(renderError);
-
-      if ('IntersectionObserver' in window) {
-        const observer = new IntersectionObserver(function (entries) {
-          entries.forEach(function (entry) {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('visible');
-              observer.unobserve(entry.target);
-            }
-          });
-        }, {
-          threshold: 0.15
-        });
-
-        document.querySelectorAll('.reveal').forEach(function (el) {
-          observer.observe(el);
-        });
-      } else {
-        document.querySelectorAll('.reveal').forEach(function (el) {
-          el.classList.add('visible');
-        });
-      }
-    })();
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>

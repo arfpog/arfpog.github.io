@@ -1,27 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script>document.documentElement.classList.add('js');</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="author" content="Arthur Pogosian">
   <title>Resume | Arthur Pogosian</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="stylesheet.css">
 </head>
-<body>
-  <div class="grain" aria-hidden="true"></div>
-  <main class="site-shell resume-main">
-    <nav class="site-nav">
-      <a class="brand" href="index.html">Arthur Pogosian</a>
-      <div class="nav-links">
-        <a href="index.html#about">About</a>
-        <a href="index.html#work">Work</a>
-        <a href="index.html#writing">Writing</a>
-      </div>
-    </nav>
+<body class="page">
+  <header class="top-nav grid-shell">
+    <p class="brand">Arthur Pogosian</p>
+  </header>
 
+  <main class="site-shell resume-main">
     <section class="section reveal visible">
       <div class="section-head writing-head">
         <p class="eyebrow">Resume</p>
@@ -35,11 +30,10 @@
         </object>
       </div>
     </section>
-
-    <footer class="site-footer">
-      <p>Arthur Pogosian</p>
-      <a href="index.html">Back home</a>
-    </footer>
   </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="script.js"></script>
 </body>
 </html>
