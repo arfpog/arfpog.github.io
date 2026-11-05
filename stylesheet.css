@@ -219,7 +219,7 @@ a {
   left: 0;
   right: 0;
   bottom: 0;
-  padding: 32px var(--margin);
+  padding: 12px var(--margin) 32px;
   background: var(--bg);
 }
 
@@ -290,7 +290,7 @@ a {
 
 @media (max-width: 800px) {
   :root {
-    --margin: 25px;
+    --margin: 12px;
   }
 
   .portrait-wrap {
